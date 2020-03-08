@@ -4,7 +4,11 @@ gomailinabox
 Description
 -----------
 
-This is an unofficial client library for the [Mail-in-a-Box](https://mailinabox.email/) API. Currently, it just supports the DNS API.
+This is an unofficial client library for the [Mail-in-a-Box](https://mailinabox.email/) API.
+
+I wrote this because I needed it for a custom Terraform provider. The API isn't really documented (as far as I can tell), but it's implemented as a Flask application and pretty simple to follow.
+
+I've only implemented [the DNS API](https://github.com/mail-in-a-box/mailinabox/blob/v0.44/management/daemon.py#L269) since that's all I need, but I'm open to any pull requests to flesh this out.
 
 Usage
 -----
