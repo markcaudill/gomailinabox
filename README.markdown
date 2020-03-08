@@ -10,19 +10,21 @@ Usage
 -----
 
 ```go
+package main
+
 import (
     "github.com/markcaudill/gomailinabox"
     "log"
 )
 
 func main() {
-    client := NewClient(&Config{URL: "https://mail.example.com", Username: "admin@example.com", Password: "abc123"})
-    inRec := &Record{Domain: "testdomain.example.com", Type: "A", Value: "1.1.1.1"}
+    client := gomailinabox.NewClient(&gomailinabox.Config{URL: "https://mail.example.com", Username: "admin@example.com", Password: "abc123"})
+    inRec := &gomailinabox.Record{Domain: "testdomain.example.com", Type: "A", Value: "1.1.1.1"}
     outRecs, err := client.CreateRecord(inRec)
     if err != nil {
         log.Fatalf("Error createdin Record %+v: %+v", inRec, err)
     }
-    log.Printf("Created Records: %+v", outRec)
+    log.Printf("Created Records: %+v", outRecs)
 }
 ```
 
