@@ -18,9 +18,9 @@ func errorIfEqualStrings(a string, b string, t *testing.T) {
 }
 
 func configFromEnv() *Config {
-	url := os.Getenv("GOMIAB_URL")
-	username := os.Getenv("GOMIAB_USERNAME")
-	password := os.Getenv("GOMIAB_PASSWORD")
+	url := os.Getenv("MAILINABOX_URL")
+	username := os.Getenv("MAILINABOX_USERNAME")
+	password := os.Getenv("MAILINABOX_PASSWORD")
 	if url == "" {
 		return nil
 	}
@@ -35,8 +35,9 @@ func errorIfErrorNotNil(e error, t *testing.T) {
 
 func TestCreateRecord(t *testing.T) {
 	config := configFromEnv()
+    t.Logf("Using Config %+v", config)
 	if config == nil {
-		t.Skipf("skipping since GOMIAB_URL is not configured")
+		t.Skipf("skipping since MAILINABOX_URL is not configured")
 	}
 	client := NewClient(config)
 
